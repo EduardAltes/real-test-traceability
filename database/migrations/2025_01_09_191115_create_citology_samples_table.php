@@ -36,14 +36,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        
-            Schema::table('citology_samples', function (Blueprint $table) {
-                $table->dropForeign(['citology_lab_id']);
-                $table->dropForeign(['citology_sample_type_id']);
-            });
-
-            Schema::dropIfExists('citology_samples');
-        
-
+        Schema::dropIfExists('citology_samples');
     }
 };
