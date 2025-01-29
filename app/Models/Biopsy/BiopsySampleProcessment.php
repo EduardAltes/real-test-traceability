@@ -13,17 +13,6 @@ class BiopsySampleProcessment extends Model
         'description',
         'description_verified',
 
-        'biopsy_procedure_id', // Foreing key
-        'procedure_verified',
-
-        'tinction_id', // Foreing key
-        'tinction_verified',
-
-        'isMounted', 
-        'isDelivered',
-        'isDiagnosed',
-        'isArchived',
-
         'observations',
     ];
 }
