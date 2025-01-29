@@ -1,14 +1,15 @@
 <?php
 
-namespace App\Models\Citology;
+namespace App\Models\Biopsy;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CitologyLab extends Model
+class BiopsySampleTypeGroup extends Model
 {
-    protected $table = 'citology_labs';
+    protected $table = 'biopsy_sample_type_groups';
     protected $primaryKey = 'id';
     protected $fillable = [
         'name'
     ];
 }
+ 

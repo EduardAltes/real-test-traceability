@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Models\Citology;
+namespace App\Models\Biopsy;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CitologySample extends Model
+class BiopsySample extends Model
 {
-    protected $table = 'citology_samples';
+    protected $table = 'biopsy_samples';
     protected $primaryKey = 'id';
     protected $fillable = [
         'qr',
-        'gender',
+        'gender', 
         'age',
         'request',
         'applicant',
@@ -18,6 +18,6 @@ class CitologySample extends Model
 
         // Foreign keys
         'lab_id',
-        'citology_sample_type_id',
+        'biopsy_sample_type_id',
     ];
-}
+} 

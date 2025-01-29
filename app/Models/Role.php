@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Models\Citology;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Tinction extends Model
+class Role extends Model
 {
-    protected $table = 'tinctions';
+    protected $table = 'roles';
     protected $primaryKey = 'id';
     protected $fillable = [
-        'name'
+        'name' 
     ];
 }
