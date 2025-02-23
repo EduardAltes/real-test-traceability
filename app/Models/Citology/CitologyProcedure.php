@@ -4,9 +4,9 @@ namespace App\Models\Citology;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CitologyLab extends Model
+class CitologyProcedure extends Model
 {
-    protected $table = 'citology_labs';
+    protected $table = 'citology_procedures';
     protected $primaryKey = 'id';
     protected $fillable = [
         'name'

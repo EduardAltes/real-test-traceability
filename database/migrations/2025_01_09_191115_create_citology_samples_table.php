@@ -20,13 +20,13 @@ return new class extends Migration
             $table->mediumText('request');
             $table->text('applicant');
             $table->boolean('reception_verified');
-            $table->unsignedBigInteger('citology_lab_id')->nullable();  // Nullable to allow 'set null'
+            $table->unsignedBigInteger('lab_id')->nullable();  // Nullable to allow 'set null'
             $table->unsignedBigInteger('citology_sample_type_id')->nullable();  // Nullable to allow 'set null'
 
             $table->timestamps();
 
             // Foreign keys with 'set null' on delete
-            $table->foreign('citology_lab_id')->references('id')->on('citology_labs')->onDelete('set null');
+            $table->foreign('lab_id')->references('id')->on('labs')->onDelete('set null');
             $table->foreign('citology_sample_type_id')->references('id')->on('citology_sample_types')->onDelete('set null');
         });
     }
@@ -36,14 +36,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        
-            Schema::table('citology_samples', function (Blueprint $table) {
-                $table->dropForeign(['citology_lab_id']);
-                $table->dropForeign(['citology_sample_type_id']);
-            });
-
-            Schema::dropIfExists('citology_samples');
-        
-
+        Schema::dropIfExists('citology_samples');
     }
 };

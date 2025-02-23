@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Role extends Model
+class Tinction extends Model
 {
-    protected $table = 'roles';
+    protected $table = 'tinctions';
     protected $primaryKey = 'id';
     protected $fillable = [
         'name' 
