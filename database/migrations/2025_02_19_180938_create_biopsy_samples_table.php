@@ -21,6 +21,7 @@ return new class extends Migration
             $table->boolean('reception_verified');
             $table->unsignedBigInteger('lab_id')->nullable();  // Nullable to allow 'set null'
             $table->unsignedBigInteger('biopsy_sample_type_id')->nullable();  // Nullable to allow 'set null'
+            $table->integer('phase')->default(1);  
 
             $table->timestamps();
  

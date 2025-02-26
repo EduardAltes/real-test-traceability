@@ -28,8 +28,8 @@ return new class extends Migration
 
             $table->timestamps();
 
-            $table->foreign('sample_id')->references('id')->on('citology_samples')->onDelete('cascade');
-            $table->foreign('procedure_id')->references('id')->on('citology_procedures')->onDelete('cascade');
+            $table->foreign('citology_sample_id')->references('id')->on('citology_samples')->onDelete('cascade');
+            $table->foreign('citology_procedure_id')->references('id')->on('citology_procedures')->onDelete('cascade');
             $table->foreign('tinction_id')->references('id')->on('tinctions')->onDelete('cascade');
         });
     }

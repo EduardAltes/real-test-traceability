@@ -22,7 +22,7 @@ return new class extends Migration
 
             $table->timestamps();
 
-            $table->foreign('biopsy_sample_processment_id')->references('id')->on('biopsy_sample_processments')->onDelete('cascade');
+            $table->foreign('biopsy_sample_processment_id', 'bsp_blocks_bsp_id_fk')->references('id')->on('biopsy_sample_processments')->onDelete('cascade');
             $table->foreign('tinction_id')->references('id')->on('tinctions')->onDelete('cascade');
        
         });

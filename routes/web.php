@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Biopsy\BiopsyLabController;
+use App\Http\Controllers\Biopsy\BiopsySampleController;
 use App\Http\Controllers\Citology\CitologyLabController;
 use App\Http\Controllers\Citology\CitologySampleController;
 use App\Http\Controllers\ProfileController;
@@ -35,8 +37,13 @@ Route::resource('samples', SampleController::class);
 Route::resource('notes', SampleController::class);
 
 #Station1: SampleReception Routes
-Route::resource('citology/sample-reception', CitologySampleController::class)->names('sample-reception');
-Route::resource('citology/sample-processment', CitologyLabController::class)->names('sample-processment');
+Route::resource('citology/sample-reception', CitologySampleController::class)->names('sample-citology-reception');
+Route::resource('citology/sample-processment', CitologyLabController::class)->names('sample-citology-processment');
+Route::get('citology/sample-finished/{phase}', [CitologyLabController::class, 'index'])->name('sample-citology.index');
+Route::resource('biopsy/sample-reception', BiopsySampleController::class)->names('sample-biopsy-reception');
+Route::resource('biopsy/sample-processment', BiopsyLabController::class)->names('sample-biopsy-processment');
+Route::get('biopsy/sample-finished/{phase}', [BiopsyLabController::class, 'index'])->name('sample-biopsy.index');
+
 
 Route::get('/station1', function () {
     return view('station1');

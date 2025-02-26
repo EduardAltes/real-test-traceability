@@ -17,13 +17,13 @@
             <div class="tab-content bg-white p-4 rounded-b border-blue-500" id="citologia">
                 <div class="flex justify-around gap-x-4">
                     <div class="box-select bg-blue-300 border p-4 rounded-lg cursor-pointer">
-                        <a href="{{route('sample-reception.create')}}">Recepció i registre de la mostra</a>
+                        <a href="{{route('sample-citology-reception.create')}}">Recepció i registre de la mostra</a>
                     </div>
                     <div class="box-select bg-blue-300 border p-4 rounded-lg cursor-pointer">
-                    <a href="{{route('sample-processment.create')}}">Processament citologia</a>
+                    <a href="{{route('sample-citology.index', 1)}}">Processament citologia</a>
                     </div>
                     <div class="box-select bg-blue-300 p-4 border rounded-lg cursor-pointer">
-                        Diagnòstic i arxiu
+                        <a href="{{route('sample-citology.index', 2)}}">Diagnòstic i arxiu</a>
                     </div>
                 </div>
             </div>
@@ -31,7 +31,7 @@
             <div class="tab-content bg-white p-4 rounded-b border-blue-500 hidden" id="biopsia">
                 <div class="flex justify-around gap-x-4">
                     <div class="box-select bg-blue-300 border p-4 rounded-lg cursor-pointer">
-                        <a href="">Recepció i registre de la mostra</a>
+                        <a href="{{route('sample-biopsy-reception.create')}}">Recepció i registre de la mostra</a>
                     </div>
                     <div class="box-select bg-blue-300 border p-4 rounded-lg cursor-pointer" onclick="openModal()">
                         Processament biopsia
