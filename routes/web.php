@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+require __DIR__.'/auth.php';
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -26,6 +28,7 @@ Route::middleware('auth')->group(function () {
 });
 
 #Station1: SampleReception Routes
+Route::post('citology/change-stage', [CitologyLabController::class, 'changeStage'])->name('change-stage');
 Route::resource('citology/sample-processment', CitologyLabController::class)->names('sample-citology-processment');
 Route::post('citology/sample-processment', [CitologyLabController::class, 'cambiarStage'])->name('crear-processment-citology');
 Route::resource('citology/sample-reception', CitologySampleController::class)->names('sample-citology-reception');

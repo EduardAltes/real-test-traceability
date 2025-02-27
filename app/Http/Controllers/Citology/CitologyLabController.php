@@ -12,24 +12,43 @@ use Illuminate\Http\Request;
 class CitologyLabController extends Controller
 {
     public function edit($id){
-        $sample = CitologySample::find($id);
+        $citologySample = CitologySample::find($id);
         $procedures = CitologyProcedure::all();
         $tinctions = Tinction::all();
 
-        return view('citology.sample-processment', compact('sample', 'procedures', 'tinctions'));
+        return view('citology.sample-processment', compact('citologySample', 'procedures', 'tinctions'));
     }
 
 
-    public function cambiarStage(Request $request){
+    public function changeStage(Request $request){
+        $dataInput = $request->all();
+
+        $checkboxes = [
+            'description_verified',
+            'procedure_verified',
+            'isMounted',
+            'isDelivered',
+            'isDiagnosed',
+            'isArchived',
+        ];
+        
+        foreach ($checkboxes as $checkbox) {
+            $dataInput[$checkbox] = isset($dataInput[$checkbox]) ? 1 : 0;
+        }
+        
         $sample = CitologySampleProcessment::create($request->all());
 
-        $citologySample = CitologySample::where('id', operator: $request->sampleId)->first();
-
+        $citologySample = CitologySample::where('id', operator: $request->citology_sample_id)->first();
+        
+        $procedures = CitologyProcedure::all();
+        $tinctions = Tinction::all();
         if($citologySample->phase == 1){
-            $citologySample->update(attributes: ['etapa' => 2]);
-            return view('citology.sample-processment', compact('sample', 'etapa'));
+
+            $citologySample->phase = 2;
+            $citologySample->save();
+            return view('citology.sample-processment', compact('sample', 'citologySample', 'procedures', 'tinctions'));
         }else{
-            return redirect()->route('citology.sample-index', 2);
+            return redirect()->route('sample-citology.index', 2);
         }
 
     }
