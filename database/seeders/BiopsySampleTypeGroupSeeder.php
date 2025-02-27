@@ -26,6 +26,9 @@ class BiopsySampleTypeGroupSeeder extends Seeder
             [
                 "name" => "Bloc cel·lular",
             ],
+            [
+                "name" => "Excisional",
+            ],
         ];
 
         foreach($tinctions as $tinction) {

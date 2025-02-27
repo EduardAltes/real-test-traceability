@@ -7,6 +7,7 @@ use App\Models\Biopsy\BiopsySampleType;
 use App\Models\Biopsy\BiopsySampleTypeGroup;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Log;
 
 class BiopsySampleTypeSeeder extends Seeder
 {
@@ -55,7 +56,9 @@ class BiopsySampleTypeSeeder extends Seeder
         ];
 
         foreach($sampleTypes as $sampleType) {
-            $sampleType["name"] = BiopsySampleTypeGroup::where('name', $sampleType["test_type"])->first()->id;
+            Log::debug(BiopsySampleTypeGroup::where('name', 'like', '%'.  $sampleType["test_type"] . '%')->first());
+            $sampleType["biopsy_sample_type_group_id"] = BiopsySampleTypeGroup::where('name', 'like', '%'.  $sampleType["test_type"] . '%')->first()->id;
+            unset($sampleType["test_type"]);
             BiopsySampleType::create($sampleType);
         }
         

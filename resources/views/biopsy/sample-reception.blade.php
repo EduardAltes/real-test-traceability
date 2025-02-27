@@ -46,19 +46,19 @@
                  <div class="mb-4">
                     <label for="lab_id" class="block text-gray-700">Tipus (1)</label>
                     <select id="lab_id" name="lab_id" class="w-full p-2 border rounded" required>
-                        <option value="">Selecciona...</option>
-                        <option value="1">Tipus A</option>
-                        <option value="2">Tipus B</option>
+                        @foreach ( $labs as $lab)
+                            <option value="{{ $lab->id }}">{{ $lab->name }}</option>
+                        @endforeach                        
                     </select>
                 </div>
 
                 <!-- Tipus (2) -->
                 <div class="mb-4">
-                    <label for="citology_sample_type_id" class="block text-gray-700">Tipus (2)</label>
-                    <select id="citology_sample_type_id" name="citology_sample_type_id" class="w-full p-2 border rounded" required>
-                        <option value="">Selecciona...</option>
-                        <option value="1">Tipus X</option>
-                        <option value="2">Tipus Y</option>
+                    <label for="biopsy_sample_type_id" class="block text-gray-700">Tipus (2)</label>
+                    <select id="biopsy_sample_type_id" name="biopsy_sample_type_id" class="w-full p-2 border rounded" required>
+                        @foreach ( $biopsyTypes as $biopsyType)
+                            <option value="{{ $biopsyType->id }}">{{ $biopsyType->name }}</option>
+                        @endforeach  
                     </select>
                 </div>
 

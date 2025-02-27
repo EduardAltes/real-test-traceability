@@ -4,12 +4,16 @@ namespace App\Http\Controllers\Biopsy;
 
 use App\Http\Controllers\Controller;
 use App\Models\Biopsy\BiopsySample;
+use App\Models\Biopsy\BiopsySampleType;
+use App\Models\Lab;
 use Illuminate\Http\Request;
 
 class BiopsySampleController extends Controller
 {
     public function create(){
-        return view('biopsy.sample-reception');
+        $labs = Lab::all();
+        $biopsyTypes = BiopsySampleType::all();
+        return view('biopsy.sample-reception', compact('labs', 'biopsyTypes'));
     }
 
     public function store(Request $request){

@@ -119,6 +119,7 @@ class CitologySampleTypeSeeder extends Seeder
 
         foreach($tinctions as $tinction) {
             $tinction["citology_sample_type_group_id"] = CitologySampleTypeGroup::where('name', $tinction["group_name"])->first()->id;
+            unset($tinction["group_name"]);
             CitologySampleType::create($tinction);
         }
     }

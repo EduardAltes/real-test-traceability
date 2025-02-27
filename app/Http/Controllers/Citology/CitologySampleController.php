@@ -4,12 +4,16 @@ namespace App\Http\Controllers\Citology;
 
 use App\Http\Controllers\Controller;
 use App\Models\Citology\CitologySample;
+use App\Models\Citology\CitologySampleType;
+use App\Models\Lab;
 use Illuminate\Http\Request;
 
 class CitologySampleController extends Controller
 {
     public function create(){
-        return view('citology.sample-reception');
+        $labs = Lab::all();
+        $citologyTypes = CitologySampleType::all();
+        return view('citology.sample-reception', compact('labs', 'citologyTypes'));
     }
 
     public function store(Request $request){

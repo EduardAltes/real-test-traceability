@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('citology_sample_types', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->unsignedBigInteger('citology_sample_type_group_id');
 
             $table->timestamps();
