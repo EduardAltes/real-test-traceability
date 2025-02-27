@@ -18,9 +18,7 @@ class CitologySampleController extends Controller
 
     public function store(Request $request){
         $dataInput = $request->all();
-
         $dataInput['reception_verified'] = isset($dataInput['reception_verified']) ? 1 : 0;
-
         $sample = CitologySample::create($dataInput);
 
         return redirect()->route('sample-citology.index', 1);

@@ -25,20 +25,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
-#Sample Routes
-Route::get('samples/createqr', [SampleQrController::class, 'createqr'])->name('samples.createqr');
-Route::get('samples/availableqr', [SampleQrController::class, 'availableqr'])->name('samples.availableqr');
-Route::resource('statuses', StatusController::class);
-Route::resource('sample-types', SampleTypeController::class);
-Route::resource('samples', SampleController::class);
-
-#Notes Routes
-Route::resource('notes', SampleController::class);
-
 #Station1: SampleReception Routes
-Route::resource('citology/sample-reception', CitologySampleController::class)->names('sample-citology-reception');
 Route::resource('citology/sample-processment', CitologyLabController::class)->names('sample-citology-processment');
+Route::post('citology/sample-processment', [CitologyLabController::class, 'cambiarStage'])->name('crear-processment-citology');
+Route::resource('citology/sample-reception', CitologySampleController::class)->names('sample-citology-reception');
 Route::get('citology/sample-finished/{phase}', [CitologyLabController::class, 'index'])->name('sample-citology.index');
 Route::resource('biopsy/sample-reception', BiopsySampleController::class)->names('sample-biopsy-reception');
 Route::resource('biopsy/sample-processment', BiopsyLabController::class)->names('sample-biopsy-processment');

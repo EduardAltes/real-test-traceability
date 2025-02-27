@@ -35,7 +35,7 @@
                             </td>
                             <td class="border px-4 py-2">
                                 @if($sample->phase == 1)
-                                    <a href="{{ route('sample-citology-processment.create', $sample->id) }}" 
+                                    <a href="{{ route('sample-citology-processment.edit', $sample->id) }}" 
                                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded">
                                         Continuar
                                     </a>
