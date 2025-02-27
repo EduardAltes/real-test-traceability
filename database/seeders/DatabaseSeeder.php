@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             CitologySampleTypeSeeder::class,
             LabsSeeder::class,
             TinctionSeeder::class,
+            CitologyProcedureSeeder::class,
         ]);
         User::factory()->create([
             'name' => 'Test User',
