@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="ca">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulari Diagnòstic</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
-<body class="bg-gray-100 py-8">
-    <div class="max-w-5xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+<x-app-layout>
+    <x-slot name="header">
         <h2 class="text-2xl font-bold mb-6 text-blue-900">Diagnòstic i Procediments</h2>
         
         <form method="POST" action="{{ route('change-stage') }}">
@@ -87,5 +79,6 @@
             <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">Enviar</button>
         </form>
     </div>
-</body>
-</html>
+    </x-slot>
+</x-app-layout>
+
