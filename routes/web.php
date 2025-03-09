@@ -12,9 +12,13 @@ use App\Http\Controllers\SampleController;
 use App\Http\Controllers\SampleQrController;
 
 Route::get('/', function () {
+    return view('welcome2');
+});
+/*
+Route::get('/', function () {
     return view('auth.login');
 });
-
+*/
 require __DIR__.'/auth.php';
 
 Route::get('/dashboard', function () {
